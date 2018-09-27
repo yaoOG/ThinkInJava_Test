@@ -44,15 +44,13 @@ class Task2 implements Runnable {
 public class NotifyVsNotifyAll {
     public static void main(String[] args) throws Exception {
         ExecutorService exec = Executors.newCachedThreadPool();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++)
             exec.execute(new Task());
-        }
         exec.execute(new Task2());
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             boolean prod = true;
 
-            @Override
             public void run() {
                 if (prod) {
                     System.out.print("\nnotify() ");
